@@ -47,7 +47,25 @@ As mattrayner info on DockerHub is out of date, go see [his github](https://gith
   ```s
   DATABASE_URL="mysql://admin:8qybqHsIUInk@127.0.0.1:3306/symfony_twig?serverVersion=5.7&charset=utf8mb4
   ```
-- Install various tools
-  `composer require --dev symfony/profiler-pack`
-  `composer require --dev symfony/var-dumper`
-  `composer requiere --dev symfony/apache-pack` Essential for routes to work.
+
+# Install various tools
+
+`composer require --dev symfony/profiler-pack`
+`composer require --dev symfony/var-dumper`
+`composer requiere --dev symfony/apache-pack` Essential for routes to work.
+
+# Install Nodejs / Yarn / Webpack / Encore
+
+`curl -fsSL https://deb.nodesource.com/setup_17.x | bash -`
+`apt update` && `apt install nodejs`
+`npm install --global yarn` && `yarn install`
+`composer require symfony/webpack-encore-bundle`
+`npm install -g npm@8.5.3` && `npm install`
+`yarn encore dev` Essential or "asset manifest file doesn't exist" Error
+
+# Make a new controller
+
+- Using Make plugin
+- src/WorkersController.php
+- Put the php worker retrieval code
+- Sent the variable to twig
