@@ -1,12 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello WorkersController!{% endblock %}
+{% block title %}Proof of concept controller / twig / Aliptic{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+
+<h1>Exemple de rendu moteur de template Twig</h1>
+
+<div class="bg-img1 size1 flex-w flex-c-m p-t-20 p-b-55 p-l-15 p-r-15">
+		<div class="wsize1 bor1 bg1 p-b-45 p-l-15 p-r-15 p-t-20 respon1">
+			<div class="wrappic1">
+				<img src="assets/logo.png" alt="Logo ALIPTIC">
+			</div>
+			<p class="txt-center m1-txt1 p-t-33 p-b-68">
+				Exercice TWIG
+			</p>
+
+    {#{ dump() }#}
+
+            <div class="container row">
+
+            {% for worker in workers %}
+            {#{ dump(worker.name) }#}
+                    <div class="card col-4">
+                        <img class="card-img-top" src="{{ worker.picture.medium }}" alt="Image de {{worker.name.first}}" />
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Bonjour, mon nom est {{worker.name.first|capitalize}} {{worker.name.last|upper}} 
+                            </h5>
+                            <p class="card-text">
+                                J'habite "{{worker.location.state}}, dans une ville qui s'appelle {{worker.location.city|upper}}<br><br>
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    Mon adresse e-mail est 
+                                    <a href="mailto:{{worker.email}}" title="Envoyer un email à {{worker.name.first|capitalize}}"> {{worker.email}}</a>, dont le mot de passe est "{{worker.login.password}}"
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+            {% endfor %}
+
+            </div>
+
+		</div>
+	</div>
+
+
+
+
+
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
